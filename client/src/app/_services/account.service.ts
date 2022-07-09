@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,15 @@ export class AccountService {
 
   login(model: any)
   {
-    return this.http.post(this.baseUrl + "account/login", model);
+    return this.http.post(this.baseUrl + "account/login", model).pipe(
+      map((response:any) => {
+        const user = response;
+        localStorage.setItem('user', JSON.stringify(user));
+      })
+    )
+  }
+
+  logout(){
+    localStorage.removeItem('user');
   }
 }

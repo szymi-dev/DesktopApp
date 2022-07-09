@@ -2,21 +2,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     public class UserController : BaseController
     {
-        public UserController()
+        private readonly IUserRepository _userRepo;
+        public UserController(IUserRepository userRepo)
         {
-
+            _userRepo = userRepo;
         }
 
         [HttpGet]
-        public string GetUsers()
+        public async Task<ActionResult<IReadOnlyList<User>>> GetUsers()
         {
-            return "This will be list of users";
+            var users = await _userRepo.GetUsers();
+
+            return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
+        {
+            return await _userRepo.GetUser(id);
         }
     }
 }
