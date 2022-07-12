@@ -19,6 +19,11 @@ namespace API.Data
             
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            
+        }
+
         public DbSet<User> Users { get; set; }
     }
 }

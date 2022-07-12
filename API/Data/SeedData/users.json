@@ -1,0 +1,23 @@
+[
+    {
+        "Id" : 1,
+        "UserName" : "Pablo",
+        "PhoneNumber" : "6421235434",
+        "Country" : "Poland",
+        "City" : "Wroclaw"
+    },
+    {
+        "Id" : 2,
+        "UserName" : "Marcin",
+        "PhoneNumber" : "31234413",
+        "Country" : "Poland",
+        "City" : "Warsaw"
+    },
+    {
+        "Id" : 3,
+        "UserName" : "Ignacy",
+        "PhoneNumber" : "213435612",
+        "Country" : "China",
+        "City" : "Pekin"
+    }
+]
